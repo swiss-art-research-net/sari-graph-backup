@@ -1,0 +1,20 @@
+endpoint: http://localhost:8887/blazegraph/sparql
+graphsQuery: '
+  PREFIX ldp: <http://www.w3.org/ns/ldp#>
+  PREFIX Platform: <http://www.metaphacts.com/ontologies/platform#>
+  SELECT DISTINCT ?g WHERE {
+      {   
+        GRAPH ?g {
+            Platform:formContainer ldp:contains ?container .
+        }
+      } UNION {
+        GRAPH ?g {
+          ?s ?p Platform:formContainer  . 
+        }
+      }
+  }
+'
+output: './output'
+
+additionalGraphs:
+ - https://platform.swissartresearch.net/prefLabels
