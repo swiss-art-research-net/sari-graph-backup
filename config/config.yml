@@ -1,4 +1,6 @@
-endpoint: http://localhost:8887/blazegraph/sparql
+endpoint: http://localhost:7776/blazegraph/sparql
+output: './output'
+
 graphsQuery: '
   PREFIX ldp: <http://www.w3.org/ns/ldp#>
   PREFIX Platform: <http://www.metaphacts.com/ontologies/platform#>
@@ -8,7 +10,7 @@ graphsQuery: '
     }
   }
 '
-output: './output'
 
 additionalGraphs:
+ - http://www.metaphacts.com/ontologies/platform#formContainer/context
  - https://platform.swissartresearch.net/prefLabels
