@@ -14,7 +14,7 @@ if [[ $USE_GIT == "True" ]]
 then
     echo "Commiting to git"
     cd $OUTPUT_FOLDER
-    git add .
+    git add -A .
     git commit -m "Updating data"
     git push
     cd $CURRENTDIR
