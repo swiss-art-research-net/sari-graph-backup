@@ -1,4 +1,5 @@
 output/
 !output/.gitkeep
+notebooks/
 .ipynb_checkpoints
 config.yml
