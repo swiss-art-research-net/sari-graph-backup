@@ -1,4 +1,4 @@
-endpoint: http://localhost:7776/blazegraph/sparql
+endpoint: http://localhost:8080/blazegraph/sparql
 output: './output'
 
 graphsQuery: '
@@ -13,4 +13,3 @@ graphsQuery: '
 
 additionalGraphs:
  - http://www.metaphacts.com/ontologies/platform#formContainer/context
- - https://platform.swissartresearch.net/prefLabels
