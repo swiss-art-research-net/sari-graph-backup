@@ -4,6 +4,7 @@ services:
         container_name: ${PROJECT_NAME}_graph_backup
         image: swissartresearx/graph-backup
         build: .
+        restart: always
         volumes:
             - ./config:/config
             - ./output:/output
