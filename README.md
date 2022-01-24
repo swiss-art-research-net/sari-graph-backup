@@ -6,7 +6,7 @@ A workflow for exporting custom created data from a triple store for backup purp
 
 1. Copy the provided configuration file
     ```bash
-    cp config/config.example.yml config.yml
+    cp config/config.example.yml config/config.yml
     ```
 1. If necessary, adapt the configuration. 
     1. Make sure that the `endpoint` corresponds to your desired SPARQL endpoint and is accessible
