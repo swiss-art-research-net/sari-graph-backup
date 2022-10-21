@@ -6,6 +6,7 @@ from string import Template
 from SPARQLWrapper import SPARQLWrapper, JSON, TURTLE
 from urllib.parse import quote
 from os.path import join
+from os import isfile
 from tqdm import tqdm
 
 try:
@@ -66,19 +67,20 @@ queryTemplate = Template("""CONSTRUCT {
 print("Exporting graphs")
 
 for graph in tqdm(graphs):
-    data = {
-        "query": queryTemplate.substitute(graph=graph)
-    }
-    try:
-        response = requests.get(config['endpoint'], headers=headers, params=data)
-    except:
-        print("Could not fetch data")
-    if response:
-        output = response.content.decode()
-        # Insert name of named graph
-        output = re.sub(r'\n\{', '\n<' + graph + '> {', output, 1)
-        filename = quote(graph, safe='') + '.trig'
-        with open(join(config['output'], filename), 'w') as f:
-            f.write(output)
+    if not isfile(join(config['output'], filename)):
+        data = {
+            "query": queryTemplate.substitute(graph=graph)
+        }
+        try:
+            response = requests.get(config['endpoint'], headers=headers, params=data)
+        except:
+            print("Could not fetch data for", graph)
+        if response:
+            output = response.content.decode()
+            # Insert name of named graph
+            output = re.sub(r'\n\{', '\n<' + graph + '> {', output, 1)
+            filename = quote(graph, safe='') + '.trig'
+            with open(join(config['output'], filename), 'w') as f:
+                f.write(output)
 
 print("Successfully exported %d graphs" % len(graphs))
