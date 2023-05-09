@@ -7,7 +7,7 @@ services:
         restart: always
         volumes:
             - ./config:/config
-            - ./output:/output
+            - ./${OUTPUT_FOLDER}:/output
         networks:
              - docker_network
 
