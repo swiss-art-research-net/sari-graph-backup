@@ -8,3 +8,10 @@ services:
         volumes:
             - ./config:/config
             - ./output:/output
+        networks:
+             - docker_network
+
+networks:
+  docker_network:
+    name: ${DOCKER_NETWORK}
+    external: true

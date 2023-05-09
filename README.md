@@ -44,20 +44,11 @@ You can run the scripts in a Docker container, which ensures that the proper Pyt
    ```sh
    cp .env.example .env
    ```
-1. Set the `PROJECT_NAME` variable to match your project and adapt the other variables as necessary
+1. Set the `PROJECT_NAME` variable to match your project
+1. Set the name of the Docker network the container should be connected to under `DOCKER_NETWORK`
+1.  Adapt the other variables as desired
 
-In this scenario, you need to make sure, that the Docker container has access to the SPARQL endpoint. Amend the provided `docker-compose.network.yml` configuration as required. For example, to connect a backup container to the `bso-data-pipeline` Docker Compose networke, the configuration would look as follow.
-```
-version: "3"
-services:
-    backup:
-        networks:
-            - bso-data-pipeline_default
-
-networks:
-    bso-data-pipeline_default:
-        external: true
-```
+In this scenario, you need to make sure, that the Docker container has access to the SPARQL endpoint, i.e. that the endpoint and the container are on the same Docker network.
 
 Start the configuration with
 ```sh
