@@ -1,4 +1,10 @@
-source .env
+if [[ $ENV_FILE ]]
+then
+  source $ENV_FILE
+else
+  source .env
+fi
+
 CURRENTDIR=$(pwd)
 
 if [[ $USE_GIT == "True" ]]
