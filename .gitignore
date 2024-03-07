@@ -4,3 +4,4 @@ output/
 !output/.gitkeep
 notebooks/
 config.yml
+docker-compose.override.yml
