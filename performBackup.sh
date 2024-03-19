@@ -25,3 +25,6 @@ then
     git push
     cd $CURRENTDIR
 fi
+
+docker cp ${OUTPUT_FOLDER}/dump.nq.zip ${TARGET_MP_CONTAINER}/runtime-data/assets/
+docker cp ${OUTPUT_FOLDER}/dump.ttl.zip ${TARGET_MP_CONTAINER}/runtime-data/assets/
