@@ -15,6 +15,8 @@ then
 fi
 
 docker exec ${PROJECT_NAME}_graph_backup python /scripts/backup.py ${CONFIG_FILE}
+zip ${OUTPUT_FOLDER}/dump.nq.zip ${OUTPUT_FOLDER}/dump.nq
+zip ${OUTPUT_FOLDER}/dump.ttl.zip ${OUTPUT_FOLDER}/dump.ttl
 
 if [[ $USE_GIT == "True" ]]
 then

@@ -91,11 +91,4 @@ for graph in tqdm(graphs):
         with open(outputFileNQ, 'a') as f:
             f.write(outputNQ)
 
-# Zip output files
-with zipfile.ZipFile(join(config['output'], 'dump.ttl.zip'), 'w') as zipf:
-    zipf.write(outputFileTTL, 'dump.ttl')
-
-with zipfile.ZipFile(join(config['output'], 'dump.nq.zip'), 'w') as zipf:
-    zipf.write(outputFileNQ, 'dump.nq')
-
 print("Successfully exported %d graphs" % len(graphs))
