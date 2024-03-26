@@ -16,7 +16,7 @@ fi
 
 docker exec ${PROJECT_NAME}_graph_backup python /scripts/backup.py ${CONFIG_FILE}
 
-rapper -f 'xmlns:crm="http://www.cidoc-crm.org/cidoc-crm"' \
+docker exec ${PROJECT_NAME}_graph_backup rapper -f 'xmlns:crm="http://www.cidoc-crm.org/cidoc-crm"' \
   -f 'xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' \
   -f 'xmlns:rico="http://ica.org/standards/RiC/ontology#"' \
   -f 'xmlns:skos="http://www.w3.org/2004/02/skos/core#"' \
@@ -31,7 +31,7 @@ rapper -f 'xmlns:crm="http://www.cidoc-crm.org/cidoc-crm"' \
 
 mv ${OUTPUT_FOLDER}/dump.ttl.prefixed ${OUTPUT_FOLDER}/dump.ttl
 
-rapper -f 'xmlns:crm="http://www.cidoc-crm.org/cidoc-crm"' \
+docker exec ${PROJECT_NAME}_graph_backup rapper -f 'xmlns:crm="http://www.cidoc-crm.org/cidoc-crm"' \
   -f 'xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' \
   -f 'xmlns:rico="http://ica.org/standards/RiC/ontology#"' \
   -f 'xmlns:skos="http://www.w3.org/2004/02/skos/core#"' \
