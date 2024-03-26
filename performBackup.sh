@@ -59,5 +59,5 @@ then
     cd $CURRENTDIR
 fi
 
-docker cp ${OUTPUT_FOLDER}/dump.nq.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/
-docker cp ${OUTPUT_FOLDER}/dump.ttl.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/
+docker cp ${OUTPUT_FOLDER}/dump.nq.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/no_auth/
+docker cp ${OUTPUT_FOLDER}/dump.ttl.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/no_auth/
