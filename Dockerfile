@@ -30,6 +30,7 @@ RUN ./configure
 RUN make install
 ENV LD_LIBRARY_PATH=/usr/local/lib
 RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+WORKDIR /
 
 # Prepare directories and volumes
 RUN mkdir /output
