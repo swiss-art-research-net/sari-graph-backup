@@ -15,8 +15,8 @@ then
 fi
 
 docker exec ${PROJECT_NAME}_graph_backup python /scripts/backup.py ${CONFIG_FILE}
-zip ${OUTPUT_FOLDER}/dump.nq.zip ${OUTPUT_FOLDER}/dump.nq
-zip ${OUTPUT_FOLDER}/dump.ttl.zip ${OUTPUT_FOLDER}/dump.ttl
+gzip -c ${OUTPUT_FOLDER}/dump.nq > ${OUTPUT_FOLDER}/dump.nq.gz
+gzip -c ${OUTPUT_FOLDER}/dump.ttl > ${OUTPUT_FOLDER}/dump.ttl.gz
 
 if [[ $USE_GIT == "True" ]]
 then
@@ -28,5 +28,5 @@ then
     cd $CURRENTDIR
 fi
 
-docker cp ${OUTPUT_FOLDER}/dump.nq.zip ${TARGET_MP_CONTAINER}:/runtime-data/assets/
-docker cp ${OUTPUT_FOLDER}/dump.ttl.zip ${TARGET_MP_CONTAINER}:/runtime-data/assets/
+docker cp ${OUTPUT_FOLDER}/dump.nq.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/
+docker cp ${OUTPUT_FOLDER}/dump.ttl.gz ${TARGET_MP_CONTAINER}:/runtime-data/assets/
